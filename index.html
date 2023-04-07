@@ -14,25 +14,60 @@
     }
 
     .container {
+      width: 350px;
+      background-color: black;
+    }
+
+    .ul {
       display: flex;
-      width: 400px;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
 
     .container .item {
       width: 50px;
       height: 200px;
       background-color: aquamarine;
+      margin-top: 20px;
+      margin-right: 10px;
+      flex-shrink: 0;
     }
 
-    .container .item:nth-child(4) {
-      margin-left: 100px;
+    .container .item:last-child {
+      margin-right: auto;
+    }
+
+    .container .item:nth-child(6n) {
+      margin-right: 0;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
+    <div class="ul">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+  <div>
+    <img style="width: 100px; height: 100px;" src="" C:\Users\YANGY\Downloads\wallhaven-6dm5xx_1300x1832.png"" alt="">
+  </div>
+  <div class="flex-wrap">
+    <div class="item"></div>
     <div class="item"></div>
     <div class="item"></div>
     <div class="item"></div>
@@ -43,7 +78,7 @@
   <script>
     var con = document.getElementById('con');
     var input = document.getElementById('input');
-    input.addEventListener('change',(event) => {
+    input.addEventListener('change', (event) => {
       console.log(event);
     }, false);
     // task
