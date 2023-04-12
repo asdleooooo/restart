@@ -76,7 +76,7 @@
   <div id='con'>this is con</div>
   <input type="text" name="" id="input">
   <script>
-    var con = document.getElementById('con');
+    /* var con = document.getElementById('con');
     var input = document.getElementById('input');
     input.addEventListener('change', (event) => {
       console.log(event);
@@ -89,71 +89,87 @@
         con.style.backgroundColor = '#000';
         con.style.height = con.style.height + 100 + 'px';
         // con.innerText = 1;
-      }, 0)
-      /*       setTimeout(function setTimeout2() {
-              // con.style.height = 100 + 'px';
-              // con.style.backgroundColor = '#000';
-              // con.style.height = 200 + 'px';
-              con.innerText = 2;
-            }, 0)
-            setTimeout(function setTimeout3() {
-              // con.style.height = 100 + 'px';
-              // con.style.backgroundColor = '#000';
-              // con.style.height = 200 + 'px';
-              con.innerText = 3;
-            }, 0)
-            setTimeout(function setTimeout4() {
-              // con.style.height = 100 + 'px';
-              // con.style.backgroundColor = '#000';
-              // con.style.height = 200 + 'px';
-              con.innerText = 4;
-            }, 0)
-            setTimeout(function setTimeout5() {
-              // con.style.height = 100 + 'px';
-              // con.style.backgroundColor = '#000';
-              // con.style.height = 200 + 'px';
-              con.innerText = 5;
-            }, 0)
-            setTimeout(function setTimeout6() {
-              // con.style.height = 100 + 'px';
-              // con.style.backgroundColor = '#000';
-              // con.style.height = 200 + 'px';
-              con.innerText = 6;
-            }, 0)
-            setTimeout(function setTimeout7() {
-              // con.style.height = 100 + 'px';
-              // con.style.backgroundColor = '#000';
-              // con.style.height = 200 + 'px';
-              con.innerText = 7;
-            }, 0)
-            setTimeout(function setTimeout8() {
-              // con.style.height = 100 + 'px';
-              // con.style.backgroundColor = '#000';
-              // con.style.height = 200 + 'px';
-              con.innerText = 8;
-            }, 0)
-            setTimeout(function setTimeout9() {
-              // con.style.height = 100 + 'px';
-              // con.style.backgroundColor = '#000';
-              // con.style.height = 200 + 'px';
-              con.innerText = 9;
-            }, 0) */
-      // task
-      setTimeout(function setTimeout10() {
-        // task 渲染
-        con.style.height = 300 + 'px';
-        // con.innerText = 10;
-      }, 0)
-      window.open("http://www.wrox.com/", "topFrame");
-      setTimeout(function setTimeout10() {
-        // task 渲染
-        con.style.height = 300 + 'px';
-        // con.innerText = 10;
-      }, 10000)
-    };
-    document.documentElement.addEventListener('mousewheel', (event) => {
-      console.log(event);
-    }, false);
+      }, 0) */
+    /*       setTimeout(function setTimeout2() {
+            // con.style.height = 100 + 'px';
+            // con.style.backgroundColor = '#000';
+            // con.style.height = 200 + 'px';
+            con.innerText = 2;
+          }, 0)
+          setTimeout(function setTimeout3() {
+            // con.style.height = 100 + 'px';
+            // con.style.backgroundColor = '#000';
+            // con.style.height = 200 + 'px';
+            con.innerText = 3;
+          }, 0)
+          setTimeout(function setTimeout4() {
+            // con.style.height = 100 + 'px';
+            // con.style.backgroundColor = '#000';
+            // con.style.height = 200 + 'px';
+            con.innerText = 4;
+          }, 0)
+          setTimeout(function setTimeout5() {
+            // con.style.height = 100 + 'px';
+            // con.style.backgroundColor = '#000';
+            // con.style.height = 200 + 'px';
+            con.innerText = 5;
+          }, 0)
+          setTimeout(function setTimeout6() {
+            // con.style.height = 100 + 'px';
+            // con.style.backgroundColor = '#000';
+            // con.style.height = 200 + 'px';
+            con.innerText = 6;
+          }, 0)
+          setTimeout(function setTimeout7() {
+            // con.style.height = 100 + 'px';
+            // con.style.backgroundColor = '#000';
+            // con.style.height = 200 + 'px';
+            con.innerText = 7;
+          }, 0)
+          setTimeout(function setTimeout8() {
+            // con.style.height = 100 + 'px';
+            // con.style.backgroundColor = '#000';
+            // con.style.height = 200 + 'px';
+            con.innerText = 8;
+          }, 0)
+          setTimeout(function setTimeout9() {
+            // con.style.height = 100 + 'px';
+            // con.style.backgroundColor = '#000';
+            // con.style.height = 200 + 'px';
+            con.innerText = 9;
+          }, 0) */
+    /*  // task
+     setTimeout(function setTimeout10() {
+       // task 渲染
+       con.style.height = 300 + 'px';
+       // con.innerText = 10;
+     }, 0)
+     window.open("http://www.wrox.com/", "topFrame");
+     setTimeout(function setTimeout10() {
+       // task 渲染
+       con.style.height = 300 + 'px';
+       // con.innerText = 10;
+     }, 10000)
+   };
+   document.documentElement.addEventListener('mousewheel', (event) => {
+     console.log(event);
+   }, false); */
+
+    var t = null;
+    var replaceThing = function () {
+      var o = t
+      var unused = function () {
+        if (o)
+          console.log("hi")
+      }
+      t = {
+        longStr: new Array(1000000).join('*'),
+        someMethod: function () {
+          console.log(1)
+        }
+      }
+    }
+    setInterval(replaceThing, 1000)
   </script>
 </body>
 

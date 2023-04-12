@@ -258,3 +258,140 @@ rules配置模块的读取和解析规则，通常用来配置loader，类型是
 
 2、应用规则：对选中后的文件通过use配置项来应用Loader，可以应用一个Loader或者从后往前舒徐应用一组Loader，同时还可以分别给Loader传入参数
 
+通过include或者exclude来限制命中的文件夹
+
+通过noParse来配置不解析的文件名
+
+通过parser来配置，是否解析这些语法
+
+### resolve
+
+webpack启动后会从配置入口模块触发找出所有依赖的模块，配置webpack如何寻找模块对应文件
+
+#### alias
+
+配置项通过别名把原导入路径映射成一个新的导入路径，可以使用$缩小命中的范围
+
+```js
+resolve: {
+  alias: {
+    components: './src/components/'
+  }
+}
+```
+
+#### mainFields
+
+某些第三方模块会对不同的环境提供不同的代码，webpack会根据mainFields的配置去决定优先采用那份代码
+
+```js
+mainFields: ['brower', 'main']
+```
+
+#### extensions
+
+在导入语句没带文件后缀时，webpack会自动带上后缀去尝试访问文件是否存在
+
+```js
+extensions: ['.js', '.json']
+```
+
+#### modules
+
+配置webpack去哪里目录下寻找第三方模块，默认只会去node_modules下寻找
+
+```js
+modules: ['./src/components', 'node_modules']
+```
+
+#### descriptionFiles
+
+配置描述第三方模块的文件名称
+
+```js
+descriptionFiles: ['package.json']
+```
+
+#### enforceExtension
+
+如果配置为true所有导入语句都必须带文件后缀
+
+### plugins
+
+plugin用于扩展webpack的功能，各种各样的plugin几乎让webpack可以做任何构建相关的事情
+
+plugin接受一个数组，数组里每一项都是一个要使用的plugin的实例
+
+### devServer
+
+它提供的一些配置可以**在配置文件中进行配置**，还可以通过**命令参数的方式进行配置**
+
+#### hot
+
+devServer默认行为在发现源代码被更新后会通过刷新整个页面来做到实时预览，开启模块热替换功能后将在不刷新整个页面的情况下通过用新模块替换老模块来实现实时预览
+
+#### inline
+
+实时预览功能依赖一个注入到页面里的代理客户端去接受来自DevServer的命令和负责刷新网页的工作，要实现实时预览，要通过inline配置
+
+#### historyApiFallback
+
+用于方便的使用HTML5 History API的单页面应用，应用瑶求服务器在针对任何命中路由时都返回对应的HTML文件
+
+```js
+historyApiFallBack: true
+```
+
+#### contentBase
+
+配置DevServer HTTP服务器的文件根目录，默认情况下为当前执行目录
+
+```js
+devServer: {
+  contentBase: path.resolve(__dirname, 'public')
+}
+```
+
+#### headers
+
+配置项可以在HTTP响应中注入一些HTTP响应头
+
+```js
+devServer: {
+  headers: {
+    
+  }
+}
+```
+
+#### host
+
+配置DevServer服务监听的地址，默认值127.0.0.1
+
+#### port
+
+默认使用的端口号，默认8080
+
+#### allowedHosts
+
+配置一个域名白名单列表，只有http请求在列表菜正常返回页面
+
+#### disableHostCheck
+
+配置是否关闭用于DNS冲绑定滚动HTTP请求的HOST检查
+
+#### https
+
+DevServer默认使用HTTP协议服务，它也能通过HTTPS协议服务。有些情况你必须使用HTTPS
+
+#### clientLogLevel
+
+配置在客户端的日志等级
+
+#### compress
+
+配置是否开启gzip压缩
+
+#### open
+
+第一次构建完，自动打开网页
