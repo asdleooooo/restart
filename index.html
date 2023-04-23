@@ -155,21 +155,44 @@
      console.log(event);
    }, false); */
 
-    var t = null;
-    var replaceThing = function () {
-      var o = t
-      var unused = function () {
-        if (o)
-          console.log("hi")
-      }
-      t = {
-        longStr: new Array(1000000).join('*'),
-        someMethod: function () {
-          console.log(1)
-        }
+    // var t = null;
+    // var replaceThing = function () {
+    //   var o = t
+    //   var unused = function () {
+    //     if (o)
+    //       console.log("hi")
+    //   }
+    //   t = {
+    //     longStr: new Array(1000000).join('*'),
+    //     someMethod: function () {
+    //       console.log(1)
+    //     }
+    //   }
+    // }
+    // setInterval(replaceThing, 1000)
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.charset = 'utf-8';
+    script.async = true;
+    script.timeout = 120000;
+
+    var timeout = setTimeout(onScriptComplete, 1000);
+    script.onerror = script.onload = onScriptComplete;
+
+
+
+    function onScriptComplete(e) {
+      script.onerror = script.onload = null;
+      clearTimeout(timeout);
+      if(e&&e.target) {
+        console.log('onload执行了');
+      }else {
+        console.log('time执行了');     
       }
     }
-    setInterval(replaceThing, 1000)
+
+    head.appendChild(script);
   </script>
 </body>
 
